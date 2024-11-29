@@ -6,10 +6,10 @@ int main () {
     int number;
        printf("phan tu mang ban dau:");
     for (int i=0;i< 10;i++) {
-         printf("%d\n", array[i]);
+         printf("%d ", array[i]);
         
     }
-   
+        printf("\n");
          printf("Nhap vi tri:");
          scanf("%d", &vitri);
          vitri--;
@@ -22,11 +22,10 @@ int main () {
     for (int i=0 ; i < 10; i++){
         if (i == vitri){
             printf("Nhap gia tri\n");
-            scanf("%d",&number);
-            array[i] = number;
+            scanf("%d",&array[i]);
     } 
 }   for (int i=0;i< 10;i++) {
-         printf("%d\n", array[i]);
+         printf("%d ", array[i]);
         
     }
    
