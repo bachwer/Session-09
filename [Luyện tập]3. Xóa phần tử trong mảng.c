@@ -10,7 +10,7 @@ int main(){
         scanf("%d", &num1[i]);
     }
     
-     for(int i = 0; i < n -1 ; i++){
+     for(int i = 0; i < n ; i++){
         printf("%d ", num1[i]);
     }
     printf("\n");
@@ -23,20 +23,12 @@ int main(){
         printf("invalid\n");
     }
     }while(pos > n || pos < 0);
-    pos--;
-    int num[n -1];
-    for(int i = 0 ; i < n ; i++){
-        if(i == pos){
-        }else{
-           num[z] = num1[i];
-            z++;
-        }
-        
-    }
-    
+    for(int i = pos - 1 ; i < n - 1 ; i++){
+       num1[i] = num1[i + 1];
+       }
 
     for(int i = 0; i < n -1 ; i++){
-        printf("%d ", num[i]);
+        printf("%d ", num1[i]);
     }
     return 0;
 }
