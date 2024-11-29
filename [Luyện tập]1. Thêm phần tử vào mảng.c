@@ -19,7 +19,7 @@ int main(){
     for(int i = n + 1; i >= pos; i--){
         num1[i + 1] = num1[i];
     }
-    printf("Gia tri thay the: ");
+    printf("Gia tri them vao: ");
     scanf("%d", &valuef);
     num1[pos] = valuef;
     
