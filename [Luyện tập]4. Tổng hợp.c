@@ -6,14 +6,12 @@ int main(){
     int menu1, pos,value;
     menu:
     do{
-    printf("1.Nhập số phần tử cần nhập và giá trị các phần tử\n");
-    printf("2.In ra giá trị các phần tử đang quản lý\n");
-    printf("3.In ra giá trị các phần tử chẵn và tính tổng\n");
-    printf("4.In ra giá trị lớn nhất và nhỏ nhất trong mảng\n");    
-    printf("5.In ra các phần tử là số nguyên tố trong mảng và tính tổng\n");    
-    printf("6.Nhập vào một số và thống kê trong mảng có bao nhiêu phần tử đó\n");
-    printf("7.Thêm một phần từ vào vị trí chỉ định\n");
-    printf("8.Thoát\n");
+    printf("1.Nhập vào mảng\n");
+    printf("2.Hiển thị mảng\n");
+    printf("3.Thêm phần tử\n");
+    printf("4.Sửa phần tử\n");    
+    printf("5.Xóa phần tử\n");    
+    printf("6.Thoát\n");
     printf("Enter your number: ");   
     scanf("%d", &menu);
     if(menu > 6 || menu < 0){
@@ -47,6 +45,7 @@ int main(){
         break;
         //2.Hiển thị mảng
         case 2:
+       
         if(n == 0){
                 printf("invalid\n");
                 goto menu1;
@@ -67,23 +66,35 @@ int main(){
             return 0;
         }
         break;
-
+        //3.Thêm phần tử
         case 3:
         if(n == 0){
                 printf("invalid\n");
                 goto menu1;
             }
-        for(int i = 0; i < n; i ++){
-            if(arr[i] % 2 == 0){
-                printf("%d ", arr[i]);
-                pos += arr[i];
-            }
+         do{
+        printf("nhap vi tri muốn thêm: ");
+        scanf("%d", &pos);
+        if(pos > n || pos < 0){
+        printf("invalid\n");
+          }
+       }while(pos > n || pos < 0);
+        n++;
+        arr[n];
+        for(int i = n - 1; i >= pos; i--){
+            arr[i + 1] = arr[i];
+        }
+        printf("Gia tri them vao: ");
+        scanf("%d", &value);
+        arr[pos -1] = value;
+        
+        for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
         }
         printf("\n");
-        printf("Tổng các phần tử chẵn là: %d", pos);
-        printf("\n");
+        menu1:
         printf("1.back\n");
-        printf("2.Exit\n");
+        printf("2.Exit\n"); 
         do{
         scanf("%d", &menu1);
         }while(menu1 > 2 || menu1 < 0);
@@ -93,25 +104,36 @@ int main(){
             return 0;
         }
         break;
-
+        
         case 4:
-        int x = 0, y = 0;;
-        if(n == 0){
+         if(n == 0){
                 printf("invalid\n");
                 goto menu1;
-        }
-         for(int i = 0; i < n; i ++){
-            if(arr[x] < arr[i]){
-                x = i;
-            }else if(arr[y] > arr[i]){
-                y = i;
             }
+        for(int i = 0; i < n; i++){
+          printf("%d ", arr[i]);
         }
-        printf("Phần tử lớn nhất là: %d\n", arr[x]);
-        printf("Phần tử nhỏ nhất là: %d\n", arr[y]);
+         printf("\n");
+         do{
+        printf("nhap vi tri muốn sửa: ");
+        scanf("%d", &pos);
+        if(pos > n || pos < 0){
+        printf("invalid\n");
+          }
+       }while(pos > n || pos < 0);
+        
+        for(int i = 0; i < n; i++){
+          if(pos == i + 1){
+              printf("Giá trị muốn thay: ");
+              scanf("%d", &arr[i]);
+          }
+        }
+        for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+        }
         printf("\n");
         printf("1.back\n");
-        printf("2.Exit\n");
+        printf("2.Exit\n"); 
         do{
         scanf("%d", &menu1);
         }while(menu1 > 2 || menu1 < 0);
@@ -126,29 +148,26 @@ int main(){
         if(n == 0){
                 printf("invalid\n");
                 goto menu1;
-        } 
-        while(y <= arr[n -1]){
-        x = 0;
-        for(int i = 0; i <= arr[y]; i++){
-            if(arr[y] % i == 0){
-                x++;
             }
+        for(int i = 0; i < n; i++){
+          printf("%d ", arr[i]);
         }
-        if(x == 2){
-            printf("%d", arr[y]);
+        printf("\n");
+      do{
+        printf("nhap vi tri muốn xoá: ");
+        scanf("%d", &pos);
+        if(pos > n || pos < 0){
+        printf("invalid\n");
+          }
+       }while(pos > n || pos < 0);
+        printf("\n");
+        for(int i = pos - 1 ; i < n - 1; i++){
+             arr[i] = arr[i + 1];
+         }
+        for(int i = 0; i < n - 1; i++){
+         printf("%d ", arr[i]);
         }
-        y++;
-        }
-        break;
-
-
-        case 6:
-        
-        break;
-
-
-        case 7:
-        menu1:
+        printf("\n");
         printf("1.back\n");
         printf("2.Exit\n");
         do{
@@ -160,14 +179,11 @@ int main(){
             return 0;
         }
         break;
-
-
-        case 8:
         
+        case 6:
+        printf("--Đã Thoát--");
+        return 0;
         break;
-
-
-
     }
     return 0;
 }
